@@ -1,5 +1,4 @@
 # Sem-6
-Assignments
 
 Optimisation
 https://web.goodnotes.com/s/dghBarU7IN6G9Rj7oNlTz7
