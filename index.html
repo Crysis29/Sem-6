@@ -216,24 +216,27 @@
 
         .course-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
             margin-top: 3rem;
         }
 
-        .course-card {
+        .course-button {
             background: var(--color-surface);
-            border: 1px solid var(--color-border);
-            padding: 2.5rem;
+            border: 2px solid var(--color-border);
+            padding: 2rem 1.5rem;
             position: relative;
             overflow: hidden;
-            transition: transform 0.4s ease, border-color 0.4s ease;
+            transition: all 0.4s ease;
             animation: fadeInUp 0.8s ease-out backwards;
+            text-decoration: none;
+            display: block;
+            cursor: pointer;
         }
 
-        .course-card:nth-child(1) { animation-delay: 0.2s; }
-        .course-card:nth-child(2) { animation-delay: 0.4s; }
-        .course-card:nth-child(3) { animation-delay: 0.6s; }
+        .course-button:nth-child(1) { animation-delay: 0.2s; }
+        .course-button:nth-child(2) { animation-delay: 0.4s; }
+        .course-button:nth-child(3) { animation-delay: 0.6s; }
 
         @keyframes fadeInUp {
             from {
@@ -246,78 +249,79 @@
             }
         }
 
-        .course-card::before {
+        .course-button::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, transparent 100%);
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, transparent 100%);
             opacity: 0;
             transition: opacity 0.4s ease;
         }
 
-        .course-card:hover {
+        .course-button:hover {
             transform: translateY(-8px);
             border-color: var(--color-accent);
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.2);
         }
 
-        .course-card:hover::before {
+        .course-button:hover::before {
             opacity: 1;
         }
 
         .course-number {
             font-family: var(--font-display);
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             font-weight: 900;
             color: var(--color-accent);
             line-height: 1;
             margin-bottom: 1rem;
-            opacity: 0.2;
+            opacity: 0.3;
             transition: opacity 0.4s ease;
         }
 
-        .course-card:hover .course-number {
-            opacity: 0.4;
+        .course-button:hover .course-number {
+            opacity: 0.6;
         }
 
-        .course-card h2 {
+        .course-button h2 {
             font-family: var(--font-display);
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
             letter-spacing: -0.01em;
+            color: var(--color-text);
         }
 
-        .course-card p {
+        .course-button p {
             color: var(--color-text-muted);
-            line-height: 1.7;
-            font-size: 0.95rem;
+            line-height: 1.6;
+            font-size: 0.9rem;
         }
 
-        .course-meta {
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--color-border);
-            display: flex;
-            gap: 1.5rem;
-            font-size: 0.85rem;
-            color: var(--color-text-muted);
+        .course-link-icon {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 24px;
+            height: 24px;
+            opacity: 0.3;
+            transition: all 0.4s ease;
         }
 
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+        .course-button:hover .course-link-icon {
+            opacity: 1;
+            transform: translate(4px, -4px);
         }
 
-        .meta-icon {
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: var(--color-accent);
-            opacity: 0.5;
+        .course-link-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke: var(--color-accent);
+            fill: none;
+            stroke-width: 2;
         }
 
         /* Footer */
@@ -353,6 +357,12 @@
         }
 
         /* Responsive */
+        @media (max-width: 968px) {
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -366,10 +376,6 @@
 
             .hero h1 {
                 font-size: 3rem;
-            }
-
-            .course-grid {
-                grid-template-columns: 1fr;
             }
 
             .footer-content {
@@ -413,47 +419,46 @@
         <section class="hero" id="home">
             <div class="decorative-line"></div>
             <h1>Semester 6<br>Course Notes</h1>
-            <p class="hero-subtitle">We are a non profitable organisation your monetary and only monetary suppoort will go a long way.</p>
+            <p class="hero-subtitle">We are a non profitable organisation your monetary and only monetary support will go a long way.</p>
         </section>
 
         <section class="courses">
             <div class="course-grid">
-                <article class="course-card">
+                <a href="https://web.goodnotes.com/s/dghBarU7IN6G9Rj7oNlTz7" target="_blank" class="course-button">
+                    <div class="course-link-icon">
+                        <svg viewBox="0 0 24 24">
+                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                            <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                    </div>
                     <div class="course-number">01</div>
                     <h2>Optimisation</h2>
-                    <p>Notes + Assignemnts</p>
-                        </div>
-                        <div class="meta-item">
-                            <div class="meta-icon"></div>
-                            <span>Core</span>
-                        </div>
-                    </div>
-                </article>
+                    <p>Notes + Assignments</p>
+                </a>
 
-                <article class="course-card">
+                <a href="https://web.goodnotes.com/s/eNFc8OZNLBFQpljGrFEYHD" target="_blank" class="course-button">
+                    <div class="course-link-icon">
+                        <svg viewBox="0 0 24 24">
+                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                            <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                    </div>
                     <div class="course-number">02</div>
                     <h2>Complex Analysis</h2>
-                    <p>Notes + Assignemnts</p>
-                        </div>
-                        <div class="meta-item">
-                            <div class="meta-icon"></div>
-                            <span>Core</span>
-                        </div>
-                    </div>
-                </article>
+                    <p>Notes + Assignments</p>
+                </a>
 
-                <article class="course-card">
+                <a href="https://share.goodnotes.com/s/bA8meQUrO3KhZ8fJPlTYrZ" target="_blank" class="course-button">
+                    <div class="course-link-icon">
+                        <svg viewBox="0 0 24 24">
+                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                            <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                    </div>
                     <div class="course-number">03</div>
                     <h2>Geometry</h2>
                     <p>Notes + Assignments</p>
-                        </div>
-                        <div class="meta-item">
-                            <div class="meta-icon"></div>
-                            <span>Core</span>
-                        </div>
-                    </div>
-                </article>
-
+                </a>
             </div>
         </section>
     </div>
