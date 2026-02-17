@@ -1,5 +1,7 @@
 # Sem-6
 
+If you love kunal :- https://crysis29.github.io/Sem-6/
+
 Optimisation
 https://web.goodnotes.com/s/dghBarU7IN6G9Rj7oNlTz7
 
